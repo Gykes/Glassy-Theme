@@ -1,0 +1,6 @@
+packages:
+- name: Glassy - A Stash Theme
+  description: Glassy - A Window To Your Collection - A Stash Theme By Serechoo
+  versions:
+  - number: 0.7
+    url: https://github.com/Serechoo/Glassy-Theme/archive/refs/tags/v0.7.zip
