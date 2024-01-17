@@ -1,10 +1,11 @@
-packages:
-  - name: 'Glassy - A Stash Theme'
-    metadata:
-      description: 'Glassy - A Window To Your Collection - A Stash Theme By Serechoo'
-      version: '0.7'
-    files:
-      - 'Glassy - A Stash Theme.css'
-      - 'Glassy.yml'
-    path: 'Glassy.zip'
-    source_repository: 'https://serechoo.github.io/Glassy-Theme/index.yml'
+availablePackages:
+  input:
+    - name: 'Glassy - A Stash Theme'
+      metadata:
+        description: 'Glassy - A Window To Your Collection - A Stash Theme By Serechoo'
+        version: '0.7'
+      files:
+        - 'Glassy - A Stash Theme.css'
+        - 'Glassy.yml'
+      path: 'Glassy.zip'
+      source_repository: 'https://serechoo.github.io/Glassy-Theme/index.yml'
