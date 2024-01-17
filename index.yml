@@ -3,8 +3,8 @@ packages:
     metadata:
       description: 'Glassy - A Window To Your Collection - A Stash Theme By Serechoo'
       version: '0.7'
-    source_repository: 'https://serechoo.github.io/Glassy-Theme/index.yml'
     files:
       - 'Glassy - A Stash Theme.css'
       - 'Glassy.yml'
     path: 'Glassy.zip'
+    source_repository: 'https://serechoo.github.io/Glassy-Theme/index.yml'
