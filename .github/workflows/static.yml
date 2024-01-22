@@ -28,12 +28,15 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
 
-    # Additional GitHub Actions setup
-    - uses: actions/checkout@v4
-    - uses: actions/configure-pages@v4
-    - uses: actions/upload-pages-artifact@v3
-    - uses: actions/deploy-pages@v4
+  # Additional GitHub Actions setup
+  additional_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/deploy-pages@v4
 
-    # Permissions
-    permissions:
-      id-token: write
+  # Permissions
+  permissions:
+    id-token: write
