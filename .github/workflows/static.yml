@@ -28,15 +28,27 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
 
-  # Additional GitHub Actions setup
-  additional_setup:
-    runs-on: ubuntu-latest
-    steps:
+      # Additional GitHub Actions setup
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
       - uses: actions/deploy-pages@v4
 
-  # Permissions
-  permissions:
-    id-token: write
+      # Permissions
+      - name: Set Permissions
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.repos.createOrUpdateFile({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: '.github/workflows/permissions.yml',
+              message: 'Update permissions.yml',
+              content: Buffer.from('id-token: write').toString('base64'),
+              branch: context.ref.replace('refs/heads/', ''),
+            })
+
+# Permissions
+permissions:
+  id-token: write
