@@ -1,3 +1,10 @@
+name: Deploy and Update Index
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   deploy_and_update_index:
     runs-on: ubuntu-latest
