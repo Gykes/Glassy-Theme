@@ -1,54 +1,18 @@
-name: Deploy and Update Index
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   deploy_and_update_index:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Update Glassy.zip SHA256 and Date in index.yml
         run: |
-          # Generate SHA256 hash for Glassy.zip
-          sha256_hash=$(sha256sum Glassy.zip | cut -d ' ' -f 1)
-
-          # Update index.yml with new SHA256 hash and current date
-          sed -i "s/sha256: .*/sha256: $sha256_hash/" index.yml
-          sed -i "s/date: .*/date: \"$(date +"%Y-%m-%d %H:%M:%S")\"/" index.yml
-
-          # Print the updated index.yml for verification
-          cat index.yml
+          chmod +x update_index.sh
+          ./update_index.sh
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
-
-      # Additional GitHub Actions setup
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
-      - uses: actions/deploy-pages@v4
-
-      # Permissions
-      - name: Set Permissions
-        uses: actions/github-script@v6
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            await github.repos.createOrUpdateFile({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              path: '.github/workflows/permissions.yml',
-              message: 'Update permissions.yml',
-              content: Buffer.from('id-token: write').toString('base64'),
-              branch: context.ref.replace('refs/heads/', ''),
-            })
-
-# Permissions
-permissions:
-  id-token: write
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Adjust this to match the directory containing your GitHub Pages content
