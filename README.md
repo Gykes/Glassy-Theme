@@ -1,7 +1,7 @@
 # Glassy-Theme
 Glassy - A Window To Your Collection - A Stash Theme By Serechoo
 
-Add this URL as a new plugin source: https://serechoo.github.io/Glassy-Theme/index.yml >> Give it a name and install it. Then, scroll down your plugins page to 'Enable' it and click 'Reload UI'. Enjoy!
+Add this URL as a new plugin source: https://Gykes.github.io/Glassy-Theme/index.yml >> Give it a name and install it. Then, scroll down your plugins page to 'Enable' it and click 'Reload UI'. Enjoy!
 
 Glassy is a versatile and visually appealing CSS theme designed to enhance the user interface of your collection-oriented website. With a focus on aesthetics, readability, and interactive elements, Glassy brings a modern and immersive experience to your users.
 
